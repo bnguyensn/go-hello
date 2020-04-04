@@ -1,4 +1,4 @@
-module github.com/bnguyensn/hello
+module github.com/bnguyensn/go-hello
 
 go 1.14
 
