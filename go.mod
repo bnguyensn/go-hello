@@ -1,5 +1,5 @@
 module github.com/bnguyensn/go-hello
 
-go 1.14
+go 1.15
 
-require github.com/google/go-cmp v0.5.2
+require golang.org/x/tour v0.0.0-20200508155540-0608babe047d

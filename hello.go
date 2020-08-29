@@ -2,40 +2,36 @@ package main
 
 import (
 	"fmt"
-	"time"
-
-	"math/rand"
-
-	"github.com/google/go-cmp/cmp"
-
-	"github.com/bnguyensn/go-hello/basics"
-	"github.com/bnguyensn/go-hello/morestrings"
-	"github.com/bnguyensn/go-hello/weirdstringcase"
 )
 
-func testBasics() {
-basics.LolLoop(rand.Intn(15) + 5)
-	fmt.Println("")
-	basics.LmaoLoop(rand.Intn(15) + 5)
+// VarAndPointer contains an integer variable and a pointer that points to it.
+type VarAndPointer struct {
+	Var     int
+	Pointer *int
+}
 
-	basics.FizzBuzz(30)
+// CreateVarAndPointer generates a VarAndPointer struct from an integer.
+func CreateVarAndPointer(n int) VarAndPointer {
+	i := n
+	p := &i
 
-	basics.CheckOs()
+	return VarAndPointer{i, p}
+}
 
-	fmt.Println("Hello, world.")
-	fmt.Println(morestrings.ReverseRunes("More string"))
-	fmt.Println(cmp.Diff("Hello world", "Hello Go"))
+// PrintVarAndPointer logs the values of a VarAndPointer struct.
+func PrintVarAndPointer(varAndPointer VarAndPointer) {
+	fmt.Printf(
+		"Underlying value: %v, pointer's value: %v, pointer's memory address: %v\n",
+		varAndPointer.Var,
+		*varAndPointer.Pointer,
+		varAndPointer.Pointer,
+	)
+}
 
-	rand.Seed(time.Now().UnixNano())
-	a := rand.Intn(10000)
-	b := rand.Intn(10000)
-	c := basics.Add(a, b)
-	fmt.Println(a, " + ", b, " = ", c)
-
-	testBasics();
+// PrintSlice logs the values of a slice.
+func PrintSlice(slice []string) {
+	fmt.Printf("%s len=%d cap=%d\n\n", slice, len(slice), cap(slice))
 }
 
 func main() {
-	s := weirdstringcase.WeirdString("This is a triumph")
-	fmt.Println(s)
 }
