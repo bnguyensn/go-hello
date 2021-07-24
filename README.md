@@ -1,4 +1,4 @@
-![Go logo](Go-Logo_LightBlue.png "Go logo")
+![Go logo](Go-Logo_LightBlue_small.png "Go logo")
 
 This is a basic Go package created to learn the language.
 
