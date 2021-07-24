@@ -4,34 +4,65 @@ import (
 	"fmt"
 )
 
-// VarAndPointer contains an integer variable and a pointer that points to it.
-type VarAndPointer struct {
-	Var     int
-	Pointer *int
+type BasicInfo struct {
+	name string
+	sex  string
 }
 
-// CreateVarAndPointer generates a VarAndPointer struct from an integer.
-func CreateVarAndPointer(n int) VarAndPointer {
-	i := n
-	p := &i
-
-	return VarAndPointer{i, p}
-}
-
-// PrintVarAndPointer logs the values of a VarAndPointer struct.
-func PrintVarAndPointer(varAndPointer VarAndPointer) {
-	fmt.Printf(
-		"Underlying value: %v, pointer's value: %v, pointer's memory address: %v\n",
-		varAndPointer.Var,
-		*varAndPointer.Pointer,
-		varAndPointer.Pointer,
-	)
-}
-
-// PrintSlice logs the values of a slice.
-func PrintSlice(slice []string) {
-	fmt.Printf("%s len=%d cap=%d\n\n", slice, len(slice), cap(slice))
+type Character struct {
+	self      BasicInfo
+	father    BasicInfo
+	mother    BasicInfo
+	isAlive   bool
+	age       int
+	responses []string
 }
 
 func main() {
+	charPaul := Character{
+		self: BasicInfo{
+			name: "Paul Atreides",
+			sex:  "male",
+		},
+		father: BasicInfo{
+			name: "Leto Atreides",
+			sex:  "male",
+		},
+		mother: BasicInfo{
+			name: "Jessica",
+			sex:  "female",
+		},
+		isAlive:   true,
+		age:       16,
+		responses: []string{"Hi there!", "Greetings!", "Nice to meet you!"},
+	}
+	charPaulPointer := &charPaul
+
+	fmt.Printf("The first character's name is %v.\n"+
+		"Their sex is %v.\n"+
+		"Their father is %v.\n"+
+		"Their mother is %v.\n"+
+		"*****\n"+
+		"ALIVE: %v.\n"+
+		"AGE: %v.\n",
+		charPaul.self.name,
+		charPaul.self.sex,
+		charPaul.father.name,
+		charPaul.mother.name,
+		charPaul.isAlive,
+		charPaul.age,
+	)
+
+	fmt.Println("*****")
+
+	for _, response := range charPaul.responses {
+		fmt.Printf("%v says: %v\n",
+			charPaul.self.name,
+			response,
+		)
+	}
+
+	fmt.Println("*****")
+
+	fmt.Printf("charPaulPointer: %v\n", &charPaulPointer)
 }
