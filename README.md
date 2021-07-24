@@ -8,10 +8,16 @@ Go is a compiled language. To run a Go program we need to build it first.
 
 ### Build & run with `go install`
 
-To build and run the program:
-
 ```zsh
 $ go install
 ```
 
 The program will be built into `$GOPATH/bin`. Look for an executable called `go-hello`.
+
+### Build & run with `go run`
+
+```zsh
+$ go run hello.go
+```
+
+The program will be built and run immediately in the directory. This is good for quick testing of the program.
