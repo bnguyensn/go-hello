@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/bnguyensn/go-hello/basics"
+	"github.com/bnguyensn/go-hello/greetings"
 )
 
 func main() {
 	names := []string{"Alice", "Bob", "Claire", "David"}
 
-	basics.HelloNames(names)
+	greetings.HelloNames(names)
 }
