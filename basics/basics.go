@@ -5,6 +5,11 @@ import (
 	"runtime"
 )
 
+// Log some texts.
+func Log(text string) {
+	fmt.Println(text)
+}
+
 // Adds 2 integers
 func Add(a, b int) int {
 	return a + b
