@@ -1,3 +1,6 @@
+/*
+Package greetings exposes functions to greet people.
+*/
 package greetings
 
 import (
